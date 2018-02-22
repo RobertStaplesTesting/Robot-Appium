@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180207 15:07:24.123" generator="Robot 3.0.2 (Python 2.7.6 on linux2)">
+<suite source="/home/robert/Documents/Work/temp/appium-tests-004/Browser_Test/browserTest.robot" id="s1" name="browserTest">
+<kw type="setup" name="Get data" library="Resource">
+<arguments>
+<arg>${DATA_PATH}</arg>
+</arguments>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${Path}</arg>
+</arguments>
+<assign>
+<var>${jsonfile}</var>
+</assign>
+<msg timestamp="20180207 15:07:24.398" html="yes" level="INFO">Getting file '&lt;a href="file:///home/robert/Documents/Work/temp/appium-tests-004/Browser_Test/data.json"&gt;/home/robert/Documents/Work/temp/appium-tests-004/Browser_Test/data.json&lt;/a&gt;'.</msg>
+<msg timestamp="20180207 15:07:24.399" level="INFO">${jsonfile} = {
+  "search_phrase_1":  "robotframework",
+  "search_phrase_2":  "Appium",
+  "github_result": "r",
+  "search_result": "r"
+}</msg>
+<status status="PASS" endtime="20180207 15:07:24.399" starttime="20180207 15:07:24.398"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads('''${jsonfile}''')</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20180207 15:07:24.400" level="INFO">${json} = {u'search_phrase_2': u'Appium', u'search_result': u'r', u'github_result': u'r', u'search_phrase_1': u'robotframework'}</msg>
+<status status="PASS" endtime="20180207 15:07:24.400" starttime="20180207 15:07:24.399"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${data}</arg>
+<arg>${json}</arg>
+</arguments>
+<msg timestamp="20180207 15:07:24.401" level="INFO">${data} = {u'search_phrase_2': u'Appium', u'search_result': u'r', u'github_result': u'r', u'search_phrase_1': u'robotframework'}</msg>
+<status status="PASS" endtime="20180207 15:07:24.401" starttime="20180207 15:07:24.400"></status>
+</kw>
+<status status="PASS" endtime="20180207 15:07:24.401" starttime="20180207 15:07:24.398"></status>
+</kw>
+<test id="s1-t1" name="Valid Github search by element">
+<kw type="setup" name="Setup Test Suite" library="Resource">
+<doc>This Function opens the Relevent application.</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+<arg>${MAIN_ACTIVITY}</arg>
+</arguments>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${SITE}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICENAME}</arg>
+<arg>app=${APPLICATION}</arg>
+<arg>automationName=appium</arg>
+<arg>appPackage=${APPLICATION}</arg>
+<arg>appActivity=${MAIN_ACTIVITY}</arg>
+</arguments>
+<status status="PASS" endtime="20180207 15:07:35.307" starttime="20180207 15:07:24.402"></status>
+</kw>
+<status status="PASS" endtime="20180207 15:07:35.307" starttime="20180207 15:07:24.401"></status>
+</kw>
+<kw name="launch Chrome" library="chrome_launch">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>com.android.chrome:id/terms_accept</arg>
+</arguments>
+<msg timestamp="20180207 15:07:35.308" level="INFO">Clicking element 'com.android.chrome:id/terms_accept'.</msg>
+<status status="PASS" endtime="20180207 15:07:36.477" starttime="20180207 15:07:35.308"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>com.android.chrome:id/positive_button</arg>
+</arguments>
+<msg timestamp="20180207 15:07:36.478" level="INFO">Clicking element 'com.android.chrome:id/positive_button'.</msg>
+<status status="PASS" endtime="20180207 15:07:37.409" starttime="20180207 15:07:36.477"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>com.android.chrome:id/positive_button</arg>
+</arguments>
+<msg timestamp="20180207 15:07:37.410" level="INFO">Clicking element 'com.android.chrome:id/positive_button'.</msg>
+<status status="PASS" endtime="20180207 15:07:38.205" starttime="20180207 15:07:37.410"></status>
+</kw>
+<status status="PASS" endtime="20180207 15:07:38.205" starttime="20180207 15:07:35.307"></status>
+</kw>
+<kw name="Search Github" library="github_search">
+<arguments>
+<arg>${data['search_phrase_1']}</arg>
+</arguments>
+<kw name="Go To Url" library="AppiumLibrary">
+<doc>Opens URL in default web browser.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180207 15:08:22.772" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180207 15:08:22.773" starttime="20180207 15:08:18.399"></status>
+</kw>
+<msg timestamp="20180207 15:08:22.779" level="FAIL">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Error attempting to start URI. Original error: Error: Error executing adbExec. Original error: 'Command '/usr/bin/adb -P 5037 -s HT6A10200365 shell am start -W -a android.intent.action.VIEW -d https\://www.github.com com.android.chrome' timed out after 20000ms'; Stderr: ''; Code: 'null'
+</msg>
+<status status="FAIL" endtime="20180207 15:08:22.779" starttime="20180207 15:07:38.207"></status>
+</kw>
+<status status="FAIL" endtime="20180207 15:08:22.781" starttime="20180207 15:07:38.206"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application.</doc>
+<status status="PASS" endtime="20180207 15:08:24.234" starttime="20180207 15:08:22.781"></status>
+</kw>
+<doc>A valid test on github searching by element</doc>
+<tags>
+<tag>Github</tag>
+</tags>
+<status status="FAIL" endtime="20180207 15:08:24.235" critical="yes" starttime="20180207 15:07:24.401">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Error attempting to start URI. Original error: Error: Error executing adbExec. Original error: 'Command '/usr/bin/adb -P 5037 -s HT6A10200365 shell am start -W -a android.intent.action.VIEW -d https\://www.github.com com.android.chrome' timed out after 20000ms'; Stderr: ''; Code: 'null'
+</status>
+</test>
+<test id="s1-t2" name="Valid Searchcode search by xpath">
+<kw type="setup" name="Setup Test Suite" library="Resource">
+<doc>This Function opens the Relevent application.</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+<arg>${MAIN_ACTIVITY}</arg>
+</arguments>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${SITE}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICENAME}</arg>
+<arg>app=${APPLICATION}</arg>
+<arg>automationName=appium</arg>
+<arg>appPackage=${APPLICATION}</arg>
+<arg>appActivity=${MAIN_ACTIVITY}</arg>
+</arguments>
+<status status="PASS" endtime="20180207 15:08:34.252" starttime="20180207 15:08:24.239"></status>
+</kw>
+<status status="PASS" endtime="20180207 15:08:34.252" starttime="20180207 15:08:24.238"></status>
+</kw>
+<kw name="launch Chrome" library="chrome_launch">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>com.android.chrome:id/terms_accept</arg>
+</arguments>
+<msg timestamp="20180207 15:08:34.254" level="INFO">Clicking element 'com.android.chrome:id/terms_accept'.</msg>
+<status status="PASS" endtime="20180207 15:08:35.449" starttime="20180207 15:08:34.253"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>com.android.chrome:id/positive_button</arg>
+</arguments>
+<msg timestamp="20180207 15:08:35.449" level="INFO">Clicking element 'com.android.chrome:id/positive_button'.</msg>
+<status status="PASS" endtime="20180207 15:08:36.267" starttime="20180207 15:08:35.449"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>com.android.chrome:id/positive_button</arg>
+</arguments>
+<msg timestamp="20180207 15:08:36.267" level="INFO">Clicking element 'com.android.chrome:id/positive_button'.</msg>
+<status status="PASS" endtime="20180207 15:08:37.115" starttime="20180207 15:08:36.267"></status>
+</kw>
+<status status="PASS" endtime="20180207 15:08:37.115" starttime="20180207 15:08:34.253"></status>
+</kw>
+<kw name="Search Searchcode" library="searchcode_search">
+<tags>
+<tag>Searchcode</tag>
+</tags>
+<doc>This is a helper that access the search query of the searchcode homepage</doc>
+<arguments>
+<arg>${data['search_phrase_2']}</arg>
+</arguments>
+<kw name="Go To Url" library="AppiumLibrary">
+<doc>Opens URL in default web browser.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180207 15:09:24.401" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180207 15:09:24.402" starttime="20180207 15:09:17.638"></status>
+</kw>
+<msg timestamp="20180207 15:09:24.404" level="FAIL">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Error attempting to start URI. Original error: Error: Error executing adbExec. Original error: 'Command '/usr/bin/adb -P 5037 -s HT6A10200365 shell am start -W -a android.intent.action.VIEW -d https\://www.github.com com.android.chrome' timed out after 20000ms'; Stderr: ''; Code: 'null'
+</msg>
+<status status="FAIL" endtime="20180207 15:09:24.404" starttime="20180207 15:08:37.122"></status>
+</kw>
+<status status="FAIL" endtime="20180207 15:09:24.405" starttime="20180207 15:08:37.116"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application.</doc>
+<status status="PASS" endtime="20180207 15:09:26.465" starttime="20180207 15:09:24.405"></status>
+</kw>
+<doc>A Valid test on searchcode searching by xpath</doc>
+<tags>
+<tag>Searchcode</tag>
+</tags>
+<status status="FAIL" endtime="20180207 15:09:26.466" critical="yes" starttime="20180207 15:08:24.236">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Error attempting to start URI. Original error: Error: Error executing adbExec. Original error: 'Command '/usr/bin/adb -P 5037 -s HT6A10200365 shell am start -W -a android.intent.action.VIEW -d https\://www.github.com com.android.chrome' timed out after 20000ms'; Stderr: ''; Code: 'null'
+</status>
+</test>
+<doc>This Suite is to test browser calls.</doc>
+<status status="FAIL" endtime="20180207 15:09:26.471" starttime="20180207 15:07:24.124"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="0">Critical Tests</stat>
+<stat fail="2" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Github</stat>
+<stat fail="1" pass="0">Searchcode</stat>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="browserTest" pass="0">browserTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

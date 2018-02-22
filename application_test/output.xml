@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180207 14:09:18.021" generator="Robot 3.0.2 (Python 2.7.6 on linux2)">
+<suite source="/home/robert/Documents/Work/temp/appium-tests-004/Application_Test/applicationTest.robot" id="s1" name="applicationTest">
+<kw type="setup" name="Get data" library="Resource">
+<arguments>
+<arg>${DATA_PATH}</arg>
+</arguments>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${Path}</arg>
+</arguments>
+<assign>
+<var>${jsonfile}</var>
+</assign>
+<msg timestamp="20180207 14:09:18.297" html="yes" level="INFO">Getting file '&lt;a href="file:///home/robert/Documents/Work/temp/appium-tests-004/Application_Test/data.json"&gt;/home/robert/Documents/Work/temp/appium-tests-004/Application_Test/data.json&lt;/a&gt;'.</msg>
+<msg timestamp="20180207 14:09:18.298" level="INFO">${jsonfile} = {
+  "valid_username": "rob.staples91",
+  "valid_password": "nottoday",
+  "invalid_username": "fakename",
+  "invalid_password": "killthepriest"
+}</msg>
+<status status="PASS" endtime="20180207 14:09:18.298" starttime="20180207 14:09:18.297"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads('''${jsonfile}''')</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20180207 14:09:18.298" level="INFO">${json} = {u'invalid_username': u'fakename', u'valid_username': u'rob.staples91', u'valid_password': u'nottoday', u'invalid_password': u'killthepriest'}</msg>
+<status status="PASS" endtime="20180207 14:09:18.298" starttime="20180207 14:09:18.298"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${data}</arg>
+<arg>${json}</arg>
+</arguments>
+<msg timestamp="20180207 14:09:18.299" level="INFO">${data} = {u'invalid_username': u'fakename', u'valid_username': u'rob.staples91', u'valid_password': u'nottoday', u'invalid_password': u'killthepriest'}</msg>
+<status status="PASS" endtime="20180207 14:09:18.299" starttime="20180207 14:09:18.298"></status>
+</kw>
+<status status="PASS" endtime="20180207 14:09:18.300" starttime="20180207 14:09:18.297"></status>
+</kw>
+<test id="s1-t1" name="Valid Login">
+<kw type="setup" name="Setup Test Suite" library="Resource">
+<doc>This Function opens the Relevent application.</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+<arg>${MAIN_ACTIVITY}</arg>
+</arguments>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${SITE}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICENAME}</arg>
+<arg>app=${APPLICATION}</arg>
+<arg>automationName=appium</arg>
+<arg>appPackage=${APPLICATION}</arg>
+<arg>appActivity=${MAIN_ACTIVITY}</arg>
+</arguments>
+<status status="PASS" endtime="20180207 14:09:27.460" starttime="20180207 14:09:18.301"></status>
+</kw>
+<status status="PASS" endtime="20180207 14:09:27.460" starttime="20180207 14:09:18.300"></status>
+</kw>
+<kw name="Login to Application" library="Resource">
+<arguments>
+<arg>${data['valid_username']}</arg>
+<arg>${data['valid_password']}</arg>
+</arguments>
+<kw name="input text">
+<arguments>
+<arg>${EMAIL_ELEMENT}</arg>
+<arg>${Username}</arg>
+</arguments>
+<msg timestamp="20180207 14:09:27.463" level="FAIL">Multiple keywords with name 'input text' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Input Text
+    Selenium2Library.Input Text</msg>
+<status status="FAIL" endtime="20180207 14:09:27.463" starttime="20180207 14:09:27.463"></status>
+</kw>
+<status status="FAIL" endtime="20180207 14:09:27.463" starttime="20180207 14:09:27.461"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application.</doc>
+<status status="PASS" endtime="20180207 14:09:28.796" starttime="20180207 14:09:27.464"></status>
+</kw>
+<doc>The purpose of this test is a valid login into the an application</doc>
+<tags>
+<tag>ValidLogin</tag>
+</tags>
+<status status="FAIL" endtime="20180207 14:09:28.797" critical="yes" starttime="20180207 14:09:18.300">Multiple keywords with name 'input text' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Input Text
+    Selenium2Library.Input Text</status>
+</test>
+<test id="s1-t2" name="Invalid Login">
+<kw type="setup" name="Setup Test Suite" library="Resource">
+<doc>This Function opens the Relevent application.</doc>
+<arguments>
+<arg>${APPLICATION}</arg>
+<arg>${MAIN_ACTIVITY}</arg>
+</arguments>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${SITE}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>deviceName=${DEVICENAME}</arg>
+<arg>app=${APPLICATION}</arg>
+<arg>automationName=appium</arg>
+<arg>appPackage=${APPLICATION}</arg>
+<arg>appActivity=${MAIN_ACTIVITY}</arg>
+</arguments>
+<status status="PASS" endtime="20180207 14:09:37.440" starttime="20180207 14:09:28.801"></status>
+</kw>
+<status status="PASS" endtime="20180207 14:09:37.440" starttime="20180207 14:09:28.800"></status>
+</kw>
+<kw name="Login to Application" library="Resource">
+<arguments>
+<arg>${data['invalid_username']}</arg>
+<arg>${data['invalid_password']}</arg>
+</arguments>
+<kw name="input text">
+<arguments>
+<arg>${EMAIL_ELEMENT}</arg>
+<arg>${Username}</arg>
+</arguments>
+<msg timestamp="20180207 14:09:37.443" level="FAIL">Multiple keywords with name 'input text' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Input Text
+    Selenium2Library.Input Text</msg>
+<status status="FAIL" endtime="20180207 14:09:37.443" starttime="20180207 14:09:37.442"></status>
+</kw>
+<status status="FAIL" endtime="20180207 14:09:37.443" starttime="20180207 14:09:37.441"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application.</doc>
+<status status="PASS" endtime="20180207 14:09:38.699" starttime="20180207 14:09:37.444"></status>
+</kw>
+<doc>The purpose of this test is an invalid login into the an application</doc>
+<tags>
+<tag>InvalidLogin</tag>
+</tags>
+<status status="FAIL" endtime="20180207 14:09:38.700" critical="yes" starttime="20180207 14:09:28.798">Multiple keywords with name 'input text' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Input Text
+    Selenium2Library.Input Text</status>
+</test>
+<doc>this is to test basic logins with a target application</doc>
+<status status="FAIL" endtime="20180207 14:09:38.702" starttime="20180207 14:09:18.022"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="0">Critical Tests</stat>
+<stat fail="2" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">InvalidLogin</stat>
+<stat fail="1" pass="0">ValidLogin</stat>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="applicationTest" pass="0">applicationTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
